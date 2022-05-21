@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<VBox fx:id="vBox" xmlns="http://javafx.com/javafx"
+      spacing="10"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.gb.client.RegController"
+      >
+    <stylesheets>
+        <URL value="@/style.css"/>
+    </stylesheets>
+    <MenuBar HBox.hgrow="ALWAYS">
+        <Menu text="File">
+            <MenuItem text="Save"/>
+            <MenuItem text="Open"/>
+            <MenuItem text="Close" onAction="#clickToClose"/>
+        </Menu>
+        <Menu text="Edit"/>
+        <Menu text="Format">
+
+        </Menu>
+        <Menu text="Help">
+            <MenuItem
+                    text="Для корректного закрытия программы воспользуйтесь File -> Close. Кнопки Save, Format и Edit пока не работают"/>
+        </Menu>
+
+    </MenuBar>
+
+    <HBox alignment="CENTER">
+
+        <VBox VBox.vgrow="ALWAYS" alignment="CENTER" spacing="10">
+
+            <HBox spacing="20" VBox.vgrow="ALWAYS">
+                <TextField fx:id="login" promptText="Login" HBox.hgrow="NEVER"/>
+                <Label HBox.hgrow="ALWAYS" text="Please create a login."/>
+            </HBox>
+            <HBox spacing="20" VBox.vgrow="ALWAYS">
+                <PasswordField fx:id="password" promptText="Password"/>
+                <Label text="Please create a password."/>
+            </HBox>
+            <HBox spacing="20" VBox.vgrow="ALWAYS">
+                <TextField fx:id="name" promptText="Name"/>
+                <Label text="Please enter your name."/>
+            </HBox>
+            <HBox spacing="20" VBox.vgrow="ALWAYS">
+                <TextField fx:id="surname" promptText="Surname"/>
+                <Label text="Please enter your surname."/>
+            </HBox>
+            <HBox spacing="20" VBox.vgrow="ALWAYS">
+                <Label fx:id="loginBusy" text="Login busy, please try again" visible="false"/>
+            </HBox>
+            <HBox spacing="20" VBox.vgrow="ALWAYS">
+                <Label fx:id="registrationComplete" text="Registration successfully completed" visible="false"/>
+            </HBox>
+
+        </VBox>
+    </HBox>
+
+    <HBox spacing="20" VBox.vgrow="NEVER" alignment="CENTER">
+        <Button fx:id="reg" text="Registration" onAction="#registration"/>
+        <Button fx:id="back" text="back" onAction="#back"/>
+    </HBox>
+
+</VBox>
+
+

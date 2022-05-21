@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<VBox alignment="CENTER" fx:id="vBox" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="gb.ru.client.AuthorizationController"
+      prefHeight="400.0" prefWidth="600.0">
+    <stylesheets>
+        <URL value="@/style.css"/>
+    </stylesheets>
+    <MenuBar HBox.hgrow="ALWAYS">
+        <Menu fx:id="menu" text="File">
+            <MenuItem text="Save"/>
+            <MenuItem text="Open"/>
+            <MenuItem text="Close" onAction="#clickToClose"/>
+        </Menu>
+        <Menu text="Edit"/>
+        <Menu text="Format">
+
+        </Menu>
+        <Menu text="Help">
+            <MenuItem
+                    text="Для корректного закрытия программы воспользуйтесь File -> Close. Кнопки Save, Format и Edit пока не работают"/>
+        </Menu>
+    </MenuBar>
+    <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+        <VBox fx:id="clientWindow" alignment="CENTER" HBox.hgrow="ALWAYS">
+            <Label text="Local file system"/>
+            <ListView fx:id="localFileSystem" VBox.vgrow="ALWAYS"
+                      HBox.hgrow="ALWAYS" maxWidth="-Infinity" maxHeight="-Infinity" focusTraversable="false"/>
+        </VBox>
+        <VBox fx:id="serverWindow" alignment="CENTER" HBox.hgrow="ALWAYS">
+            <Label text="Server file system"/>
+            <ListView fx:id="serverFileSystem" VBox.vgrow="ALWAYS"
+                      HBox.hgrow="ALWAYS" maxWidth="-Infinity" maxHeight="-Infinity" focusTraversable="false"/>
+        </VBox>
+    </HBox>
+    <Button fx:id="move" text="Move" alignment="CENTER" onAction="#copyFile"/>
+
+</VBox>

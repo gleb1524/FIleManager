@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<VBox fx:id="vBox" alignment="CENTER" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.gb.client.WorkController">
+    <stylesheets>
+        <URL value="@/style.css" />
+    </stylesheets>
+    <MenuBar HBox.hgrow="ALWAYS">
+        <Menu fx:id="menu" text="File">
+            <MenuItem text="Save" />
+            <MenuItem text="Open" />
+            <MenuItem onAction="#clickToClose" text="Close" />
+        </Menu>
+        <Menu text="Edit" />
+        <Menu text="Format">
+
+        </Menu>
+        <Menu text="Help">
+            <MenuItem text="Для корректного закрытия программы воспользуйтесь File -&gt; Close. Кнопки Save, Format и Edit пока не работают" />
+        </Menu>
+    </MenuBar>
+    <HBox>
+        <ComboBox onAction="#selectDiskActionClient" fx:id="disksBoxClient"/>
+        <TextField fx:id="clientDir" editable="false" HBox.hgrow="ALWAYS"/>
+        <Button text="Up" onAction="#btnPathUpActionClient"/>
+        <ComboBox onAction="#selectDiskActionServer" fx:id="disksBoxServer"/>
+        <TextField fx:id="serverDir" editable="false" HBox.hgrow="ALWAYS"/>
+        <Button text="Up" onAction="#btnPathUpActionServer"/>
+
+    </HBox>
+    <HBox VBox.vgrow="ALWAYS">
+        <TableView fx:id="clientTable" focusTraversable="false" maxHeight="Infinity" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+        <TableView fx:id="serverTable" focusTraversable="false" maxHeight="Infinity" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+<!--        <fx:include fx:id="clientPanel" source="panel.fxml" HBox.hgrow="ALWAYS"/>-->
+<!--        <fx:include fx:id="serverPanel" source="panel.fxml" HBox.hgrow="ALWAYS"/>-->
+    </HBox>
+
+    <HBox spacing="5.0">
+        <Button text="Creat dir" focusTraversable="false" HBox.hgrow="ALWAYS" maxWidth="Infinity" onAction="#creatDirAction"/>
+        <Button text="Copy" focusTraversable="false" HBox.hgrow="ALWAYS" maxWidth="Infinity" onAction="#copyBtnAction"/>
+        <Button text="Move" focusTraversable="false" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        <Button text="Delete" focusTraversable="false" HBox.hgrow="ALWAYS" maxWidth="Infinity" onAction="#deleteBtnAction"/>
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+        </padding>
+    </HBox>
+
+</VBox>

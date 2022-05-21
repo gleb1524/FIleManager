@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TextArea?>
+<VBox fx:id="vBox" alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="gb.ru.ClientController">
+   <stylesheets>
+      <URL value="@/style.css"/>
+   </stylesheets>
+   <HBox VBox.vgrow="NEVER">
+      <MenuBar HBox.hgrow="ALWAYS">
+         <Menu text="File">
+            <MenuItem text="Save"/>
+            <MenuItem text="Open"/>
+            <MenuItem text="Close" onAction="#clickToClose"/>
+         </Menu>
+         <Menu text="Edit"/>
+         <Menu text="Format">
+
+         </Menu>
+         <Menu text="Help">
+            <MenuItem
+                    text="Для корректного закрытия программы воспользуйтесь File -> Close. Кнопки Save, Format и Edit пока не работают"/>
+         </Menu>
+
+      </MenuBar>
+   </HBox>
+   <HBox>
+      <TextField fx:id="login" promptText="Login" />
+      <PasswordField fx:id="password" promptText="Password" />
+      <Button fx:id="authorization" text="Authorization" onAction="#authorization"/>
+      <Button fx:id="registration" text="Registration" onAction="#registration"/>
+   </HBox>
+
+   <HBox VBox.vgrow="ALWAYS" alignment="CENTER">
+      <TextArea fx:id="textArea" editable="false"/>
+   </HBox>
+
+
+
+</VBox>

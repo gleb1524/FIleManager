@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="89b8e84d-8169-404a-8054-ceefc4ca5741" name="Changes" comment="список файлов с сервера, добавление директорий на сервер">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4bd7797a-5642-44ed-b8d2-77ddecd1bb4b.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/target/classes/ru/gb/client/ClientController$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/target/classes/ru/gb/client/net/NettyClient$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/target/classes/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/target/classes/ru/gb/server/ServerApp$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dto/target/classes/ru/gb/dto/FileInfo$FileType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dto/target/classes/ru/gb/dto/GetFileInfo$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dto/target/classes/ru/gb/dto/GetFileInfo$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_05_2022_6_31__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_05_2022_6_32__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/ru/gb/client/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/ru/gb/client/ClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/ru/gb/client/RegController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/ru/gb/client/RegController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/ru/gb/client/WorkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/ru/gb/client/WorkController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/ru/gb/client/net/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/ru/gb/client/net/ClientHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/target/classes/ru/gb/client/panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/target/classes/ru/gb/client/panel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/target/classes/ru/gb/server/BasicHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/Server/target/classes/ru/gb/server/BasicHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dto/target/classes/ru/gb/dto/GetFileInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/dto/target/classes/ru/gb/dto/GetFileInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dto/target/classes/ru/gb/dto/GetFileListRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dto/target/classes/ru/gb/dto/UploadRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/dto/target/classes/ru/gb/dto/UploadRequest.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="29EKNH8hMvHodJXn329CeE4nC9q" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/gleb1/Desktop/FileManager"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.gb.dto" />
+      <recent name="ru.gb.client" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.gb.client.Client" />
+      <module name="Client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.gb.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.gb.server.ServerApp" />
+      <module name="Server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.gb.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ServerApp" />
+        <item itemvalue="Application.Client" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="89b8e84d-8169-404a-8054-ceefc4ca5741" name="Changes" comment="" />
+      <created>1652672763083</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652672763083</updated>
+      <workItem from="1652672764924" duration="25154000" />
+      <workItem from="1652706144119" duration="30881000" />
+      <workItem from="1652811399698" duration="43966000" />
+      <workItem from="1653117210702" duration="3587000" />
+    </task>
+    <task id="LOCAL-00001" summary="список файлов с сервера, добавление директорий на сервер">
+      <created>1652710319308</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1652710319308</updated>
+    </task>
+    <task id="LOCAL-00002" summary="трансфер на сервер">
+      <created>1653120454378</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653120454378</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="список файлов с сервера, добавление директорий на сервер" />
+    <MESSAGE value="трансфер на сервер" />
+    <option name="LAST_COMMIT_MESSAGE" value="трансфер на сервер" />
+  </component>
+</project>

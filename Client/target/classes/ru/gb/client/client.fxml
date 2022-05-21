@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="vBox" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.gb.client.ClientController">
+    <stylesheets>
+        <URL value="@/style.css" />
+    </stylesheets>
+    <HBox VBox.vgrow="NEVER">
+        <MenuBar HBox.hgrow="ALWAYS">
+            <Menu text="File">
+                <MenuItem text="Save" />
+                <MenuItem text="Open" />
+                <MenuItem onAction="#clickToClose" text="Close" />
+            </Menu>
+            <Menu text="Edit" />
+            <Menu text="Format">
+
+            </Menu>
+            <Menu text="Help">
+                <MenuItem text="Для корректного закрытия программы воспользуйтесь File -&gt; Close. Кнопки Save, Format и Edit пока не работают" />
+            </Menu>
+
+        </MenuBar>
+    </HBox>
+    <HBox spacing="5">
+        <TextField fx:id="login" maxWidth="Infinity" promptText="Login" HBox.hgrow="ALWAYS">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+        </TextField>
+        <PasswordField fx:id="password" maxWidth="-Infinity" promptText="Password" HBox.hgrow="ALWAYS" />
+        <Button fx:id="authorization" onAction="#authorization" text="Authorization" HBox.hgrow="ALWAYS" />
+        <Button fx:id="registration" maxWidth="-Infinity" onAction="#registration" text="Registration" HBox.hgrow="ALWAYS" />
+      <padding>
+         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      </padding>
+    </HBox>
+
+    <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+        <TextArea fx:id="textArea" editable="false" />
+    </HBox>
+
+
+</VBox>
