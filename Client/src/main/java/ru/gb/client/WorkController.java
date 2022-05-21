@@ -1,29 +1,29 @@
 package ru.gb.client;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
-import ru.gb.client.net.ClientHandler;
 import ru.gb.client.net.ClientService;
 import ru.gb.client.net.NettyClient;
 import ru.gb.dto.*;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.nio.file.FileSystems;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
 
 public class WorkController implements Initializable {
    private GetFileInfo clientFileInfo;
    private GetFileInfo serverFileInfo;
 
     private final String CLIENT_DIR = ".";
+
+    private final int MB_16 = 16_000_000;
 
     @FXML
     public TextField serverDir;
@@ -63,16 +63,50 @@ public class WorkController implements Initializable {
 
     }
 
-
-
     @FXML
-    public void copyBtnAction(ActionEvent actionEvent) {
+    public void copyBtnAction(ActionEvent actionEvent) throws IOException {
+        String name = clientDir.getText();
+        Path path = Paths.get(name);
+
+
+
+        saw(path, b -> {
+            UploadRequest uploadRequest = new UploadRequest(name, serverDir.getText());
+            uploadRequest.setData(b);
+            uploadRequest.setByteRead(b.length);
+            try {
+                NettyClient.getChannel().writeAndFlush(uploadRequest).sync();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println(b.length +"отправилось");});
+        updateServerTable();
+    }
+
+    public void saw(Path path, Consumer<byte[]> filePartConsumer) {
+        byte[] filePart = new byte[MB_16];
+        int count;
+
+
+        try (FileInputStream fileInputStream = new FileInputStream((path).toFile())) {
+            while ((count = fileInputStream.read(filePart)) != -1) {
+                byte[] test;
+                if (count >= MB_16) {
+                    filePartConsumer.accept(filePart);
+                } else {
+                    test = Arrays.copyOf(filePart, count);
+                    filePartConsumer.accept(test);
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     @FXML
     public void deleteBtnAction(ActionEvent actionEvent) {
     }
     @FXML
-    public void creatDirAction(ActionEvent actionEvent) {
+    public void creatDirAction(ActionEvent actionEvent) throws InterruptedException {
         Alert creatDirAlert  = new Alert(Alert.AlertType.CONFIRMATION,
                 "Хотите создать новую папку?", ButtonType.NEXT, ButtonType.CANCEL);
         creatDirAlert.showAndWait();

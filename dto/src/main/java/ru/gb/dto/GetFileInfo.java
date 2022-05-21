@@ -14,14 +14,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.stream.Collectors;
 
 public class GetFileInfo {
-
-    public void updateList(Path path, TableView<FileInfo> fileDir, TextField address) {
+   private TableView<FileInfo> filesTable;
+   private TextField address;
+   private Path path;
+    public void updateList(Path updatePath, TableView<FileInfo> tableView, TextField currentAddress) {
         try {
-            Path currentPath = path.normalize().toAbsolutePath();
-            address.setText(currentPath.toString());
-            fileDir.getItems().clear();
-            fileDir.getItems().addAll(Files.list(path).map(FileInfo::new).collect(Collectors.toList()));
-            fileDir.sort();
+            Path currentPath = updatePath.normalize().toAbsolutePath();
+            currentAddress.setText(currentPath.toString());
+            tableView.getItems().clear();
+            tableView.getItems().addAll(Files.list(updatePath).map(FileInfo::new).collect(Collectors.toList()));
+            tableView.sort();
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "По какой-то неведомой причине не удалось обновить список файлов", ButtonType.OK);
             alert.showAndWait();
@@ -29,6 +31,9 @@ public class GetFileInfo {
     }
 
     public GetFileInfo(TableView<FileInfo> filesTable, Path path, TextField address) {
+        this.filesTable = filesTable;
+        this.address = address;
+        this.path = path;
 
         updateList(path, filesTable, address);
 
@@ -77,6 +82,8 @@ public class GetFileInfo {
                     Path path = Paths.get(address.getText()).resolve(filesTable.getSelectionModel().getSelectedItem().getFileName());
                     if(Files.isDirectory(path)){
                         updateList(path, filesTable, address);
+                    }else {
+                        address.setText(path.normalize().toString());
                     }
                 }
             }

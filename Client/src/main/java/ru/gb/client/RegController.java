@@ -44,7 +44,7 @@ public class RegController{
     }
 
     @FXML
-    public void registration(ActionEvent actionEvent) {
+    public void registration(ActionEvent actionEvent) throws InterruptedException {
         ClientService.setRegController(this);
         loginBusy.setVisible(false);
         registrationComplete.setVisible(false);

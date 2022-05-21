@@ -3,6 +3,8 @@ package ru.gb.client.net;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import ru.gb.client.Client;
+import ru.gb.client.ClientController;
 import ru.gb.dto.BasicResponse;
 
 
@@ -18,6 +20,7 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         BasicResponse response = (BasicResponse) msg;
         String responseText = response.getResponse();
+        System.out.println(responseText);
 
         if("creat_ok".equals(responseText)){
             ClientService.getWorkController().updateServerTable();
@@ -43,7 +46,7 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
         }
         if(responseText.startsWith("auth")){
             if("auth_ok".equals(responseText)){
-                ClientService.getClientController().workPlace(false);
+                Client.setRoot("auth");
             }else if("auth_no".equals(responseText)){
                 ClientService.getClientController().textArea.appendText("Invalid login or password");
             }else {

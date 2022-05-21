@@ -39,7 +39,7 @@ public class ClientController implements Initializable {
     }
 
     @FXML
-    public void authorization(ActionEvent actionEvent) throws IOException {
+    public void authorization(ActionEvent actionEvent) throws IOException, InterruptedException {
         AuthRequest authRequest = new AuthRequest(login.getText(), password.getText());
         ClientService.setLogin(login.getText());
         NettyClient.getChannel().writeAndFlush(authRequest);
@@ -53,16 +53,6 @@ public class ClientController implements Initializable {
             NettyClient.getEventLoopGroup().shutdownGracefully();
         });
     }
-
-    public  void workPlace(boolean is) throws IOException {
-        if(is){
-            Alert alert = new Alert(Alert.AlertType.NONE, "Wrong login or password. Try again");
-            alert.show();
-        }else{
-            Client.setRoot("auth");
-        }
-    }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
