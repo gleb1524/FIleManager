@@ -8,9 +8,9 @@
 
 <VBox xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ru.gb.client.WorkController">
+            fx:controller="ru.gb.client.WorkWindow">
     <HBox>
-        <ComboBox onAction="#selectDiskAction" fx:id="disksBox"/>
+        <ComboBox onAction="#selectDiskAction" fx:id="disksBox" />
         <TextField fx:id="pathField" editable="false" HBox.hgrow="ALWAYS"/>
         <Button text="Up" onAction="#btnPathUpAction"/>
     </HBox>
@@ -19,5 +19,4 @@
     <properties>
         <ctrl><fx:reference source="controller"/></ctrl>
     </properties>
-
 </VBox>
