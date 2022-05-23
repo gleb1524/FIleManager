@@ -42,7 +42,7 @@ public class ClientController implements Initializable {
     public void authorization(ActionEvent actionEvent) throws IOException, InterruptedException {
         AuthRequest authRequest = new AuthRequest(login.getText(), password.getText());
         ClientService.setLogin(login.getText());
-        NettyClient.getChannel().writeAndFlush(authRequest);
+        NettyClient.getChannel().writeAndFlush(authRequest).sync();
     }
 
     @FXML

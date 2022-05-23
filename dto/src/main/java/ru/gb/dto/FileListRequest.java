@@ -1,13 +1,10 @@
 package ru.gb.dto;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-public class FileRequest implements BasicRequest{
+public class FileListRequest implements BasicRequest{
     private String path;
     private String auth;
 
-    public FileRequest(String path,String auth, String login) {
+    public FileListRequest(String path, String auth, String login) {
         this.path = path;
         this.auth = auth;
         this.login = login;

@@ -29,19 +29,9 @@ public class UploadRequest implements BasicRequest{
     public void setLustDataPac(byte[] lustDataPac) {
         this.lustDataPac = lustDataPac;
     }
-
     private String remPath;
    private long size;
    private int byteRead;
-   private int lustPac;
-
-    public int getLustPac() {
-        return lustPac;
-    }
-
-    public void setLustPac(int lustPac) {
-        this.lustPac = lustPac;
-    }
 
     public int getByteRead() {
         return byteRead;
@@ -55,7 +45,6 @@ public class UploadRequest implements BasicRequest{
         return size;
     }
 
-    private static final int MB_8 = 4_000_000;
     public UploadRequest(String path, String remPath) {
         this.remPath = remPath;
         this.file=new File(path);
@@ -66,14 +55,6 @@ public class UploadRequest implements BasicRequest{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-//        try(FileInputStream fileInputStream = new FileInputStream(file)){
-//            data = fileInputStream.readAllBytes();
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
     }
 
     public void setData(byte[] data){
@@ -100,15 +81,4 @@ public class UploadRequest implements BasicRequest{
         return null;
     }
 
-//    byte[] filePart = new byte[MB_8];
-//    public void saw(String path, Consumer<byte[]> filePartConsumer) {
-//
-//        try (FileInputStream fileInputStream = new FileInputStream(Paths.get(path).toFile())) {
-//            while (fileInputStream.read(filePart) != -1) {
-//                filePartConsumer.accept(filePart);
-//            }
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 }
