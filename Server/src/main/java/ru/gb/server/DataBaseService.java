@@ -24,7 +24,7 @@ public class DataBaseService {
     }
     public void connectDb() throws Exception {
         Class.forName("org.sqlite.JDBC");
-        connection = DriverManager.getConnection("jdbc:sqlite:ServerDB.db");
+        connection = DriverManager.getConnection("jdbc:sqlite:ServDB.db");
         statement = connection.createStatement();
     }
 

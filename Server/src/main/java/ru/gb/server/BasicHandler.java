@@ -2,15 +2,14 @@ package ru.gb.server;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import ru.gb.dto.*;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class BasicHandler extends ChannelInboundHandlerAdapter {
 
@@ -19,10 +18,12 @@ public class BasicHandler extends ChannelInboundHandlerAdapter {
     private  String password;
     private  String auth;
     private final String SER_DIR = ".";
-    File file;
+    private File file;
     private long sizefile;
     private int byteRead;
     private int start = 0;
+    private Path path;
+    private int marker = 0;
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
@@ -34,14 +35,15 @@ public class BasicHandler extends ChannelInboundHandlerAdapter {
 
 
 
-        if (msg instanceof FileRequest) {
-            FileRequest request = (FileRequest) msg;
+        if (msg instanceof CreateDirRequest) {
+            CreateDirRequest request = (CreateDirRequest) msg;
+            System.out.println(1);
             if (dataBaseService.hasAuthRegister(request.getAuth(), request.getLogin())) {
-                System.out.println(request.getPath());
-                Path path = Paths.get(request.getPath());
-                if (!Files.exists(path)) {
+                System.out.println(request.getPath().toString());
+                Path newPath = Paths.get(request.getPath());
+                if (!Files.exists(newPath)) {
                     ctx.writeAndFlush(new BasicResponse("creat_ok"));
-                    Files.createDirectory(path);
+                    Files.createDirectory(newPath);
                 }
             }
         }else if (msg instanceof RegRequest) {
@@ -60,12 +62,16 @@ public class BasicHandler extends ChannelInboundHandlerAdapter {
                 auth = dataBaseService.creatAuth(request.getLogin(), request.getPassword());
                 if (!dataBaseService.isAuthRegister(auth, login)) {
                     dataBaseService.authRegister(auth, login);
+                }else{
+                    IsAuthRequest isAuthRequest = new IsAuthRequest();
+                    isAuthRequest.setAuth(auth);
+                    ctx.writeAndFlush(new BasicResponse("auth_set " + auth));
+                    System.out.println(auth);
                 }
-                ctx.writeAndFlush(new BasicResponse("auth " + auth));
-                System.out.println(auth);
+
                 if (dataBaseService.hasAuth(login, password)) {
                     String filename = SER_DIR + "\\" + login + "root";
-                    Path path = Paths.get(filename);
+                    path = Paths.get(filename);
                     if (!Files.exists(path)) {
                         Files.createDirectory(path);
                         System.out.println("New Directory created !   " + filename);
@@ -111,7 +117,14 @@ public class BasicHandler extends ChannelInboundHandlerAdapter {
                       throw new RuntimeException(e);
                 }
 
-          }//else if(msg instanceof byte[]){
+          }else if(msg instanceof FileListRequest){
+            FileListRequest request = (FileListRequest) msg;
+            path = Paths.get(request.getPath());
+            List<FileInfo> fileInfos = Files.list(path).map(FileInfo::new).collect(Collectors.toList());
+            System.out.println(fileInfos);
+            ctx.writeAndFlush(new FileListResponse(fileInfos, marker)).sync();
+            marker++;
+        }//else if(msg instanceof byte[]){
 //            System.out.println("что-то прищло");
 //            byte[] b = (byte[]) msg;
 //
